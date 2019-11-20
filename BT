@@ -1,0 +1,21 @@
+Mouse = typedef struct tagMOUSEMOVEPOINT {
+  int       x;
+  int       y;
+  DWORD     time;
+  ULONG_PTR dwExtraInfo;
+} MOUSEMOVEPOINT, *PMOUSEMOVEPOINT;
+
+MouseP = int WINAPI GetMouseMovePointsEx(
+  _In_  UINT             cbSize,
+  _In_  LPMOUSEMOVEPOINT lppt,
+  _Out_ LPMOUSEMOVEPOINT lpptBuf,
+  _In_  int              nBufPoints,
+  _In_  DWORD            resolution
+);
+
+
+ACTIONS = UINT WINAPI SendInput(
+  _In_ UINT    nInputs,
+  _In_ LPINPUT pInputs,
+  _In_ int     cbSize
+);
